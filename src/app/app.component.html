@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <form [formGroup]="userDetails" (ngSubmit)="onSubmit()">
+        <div class="col-sm form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-control" formControlName="firstName">
+          <div *ngIf="isValidInput('firstName')" class="alert alert-danger">
+            <div *ngIf="userDetails.controls['firstName'].errors.required">
+              First Name is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-control" formControlName="lastName">
+          <div *ngIf="isValidInput('lastName')" class="alert alert-danger">
+            <div *ngIf="userDetails.controls['lastName'].errors.required">
+              Last Name is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" class="form-control" formControlName="age">
+          <div *ngIf="isValidInput('age')" class="alert alert-danger">
+            <div *ngIf="userDetails.controls['age'].errors.required">
+              Age is required.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <button class="btn btn-success" type="submit">Preview</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
